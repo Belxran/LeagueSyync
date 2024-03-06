@@ -1,9 +1,9 @@
 package com.example.leaguesyync
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +15,14 @@ class MainActivity : AppCompatActivity() {
 
         registerButton.setOnClickListener {
             // Acción al hacer clic en el botón de registro
-            // Aquí puedes abrir la actividad de registro o cualquier otra acción que desees
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
         loginButton.setOnClickListener {
             // Acción al hacer clic en el botón de inicio de sesión
-            // Aquí puedes abrir la actividad de inicio de sesión o cualquier otra acción que desees
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

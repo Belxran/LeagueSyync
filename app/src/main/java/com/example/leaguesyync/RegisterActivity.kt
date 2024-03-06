@@ -16,7 +16,6 @@ class RegisterActivity : AppCompatActivity() {
             // Puedes realizar la validación de los datos ingresados por el usuario
             // y guardar la información en tu base de datos o en otro sistema de almacenamiento
             // Una vez registrado, puedes abrir la actividad de inicio de sesión o cualquier otra acción que desees
-            // Por simplicidad, aquí simplemente cerramos la actividad de registro
             finish()
         }
     }
