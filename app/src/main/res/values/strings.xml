@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">LeagueSyync</string>
+    <string name="app_name">LeagueSync</string>
+    <string name="email_hint">Pues no estamos tan MAIL</string>
+
 </resources>
