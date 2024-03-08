@@ -13,11 +13,8 @@ class LoginActivity : AppCompatActivity() {
         val loginButton = findViewById<Button>(R.id.loginButton)
 
         loginButton.setOnClickListener {
-            // Aquí deberías implementar la lógica para verificar las credenciales del usuario
-            // Si las credenciales son válidas, puedes iniciar sesión y abrir la actividad principal
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MenuPrincipal::class.java)
             startActivity(intent)
-            finish()
         }
     }
 }

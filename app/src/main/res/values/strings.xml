@@ -3,5 +3,9 @@
     <string name="email_hint">Pues no estamos tan MAIL</string>
     <string name="login_activity_title">Título de la Actividad de Inicio de Sesión</string>
     <string name="register_activity_title">Título de la Actividad de Registro</string>
+    <string name="title_activity_menu_principal">MenuPrincipal</string>
+    <string name="title_home">Home</string>
+    <string name="title_team">Equipo</string>
+    <string name="title_perfil">Perfil</string>
 
 </resources>
