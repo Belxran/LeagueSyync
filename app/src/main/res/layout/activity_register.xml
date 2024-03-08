@@ -30,7 +30,9 @@
         android:hint="Nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/lastName1EditText"
@@ -42,7 +44,9 @@
         android:hint="Primer apellido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/firstNameEditText"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/lastName2EditText"
@@ -54,7 +58,9 @@
         android:hint="Segon cognom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName1EditText" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName1EditText"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/usernameEditText"
@@ -66,7 +72,9 @@
         android:hint="Nombre de usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastName2EditText" />
+        app:layout_constraintTop_toBottomOf="@+id/lastName2EditText"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -79,7 +87,9 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/confirmPasswordEditText"
@@ -92,7 +102,9 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"
+        android:imeOptions="actionNone"
+        />
 
     <Button
         android:id="@+id/registerButton"

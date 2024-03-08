@@ -27,7 +27,9 @@
         android:hint="Nombre de usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        android:imeOptions="actionNone"
+        />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -38,7 +40,9 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
+        android:imeOptions="actionNone"
+        />
 
     <Button
         android:id="@+id/loginButton"
