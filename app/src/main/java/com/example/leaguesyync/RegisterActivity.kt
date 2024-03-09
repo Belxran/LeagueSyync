@@ -17,7 +17,9 @@ class RegisterActivity : AppCompatActivity() {
         val etLastName1 = findViewById<EditText>(R.id.lastName1EditText)
         val etLastName2 = findViewById<EditText>(R.id.lastName2EditText)
         val etUsername = findViewById<EditText>(R.id.usernameEditText)
-        val etPassword = findViewById<EditText>(R.id.confirmPasswordEditText)
+        val etPassword = findViewById<EditText>(R.id.passwordEditText)
+        val etConfirmPassword = findViewById<EditText>(R.id.passwordConfirmEditText)
+
 
         btnSave.setOnClickListener { val intent = Intent(this, MenuPrincipal::class.java)
             startActivity(intent)
@@ -27,7 +29,6 @@ class RegisterActivity : AppCompatActivity() {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
-            // Crear un objeto Usuario con los datos ingresados
 
 
         }

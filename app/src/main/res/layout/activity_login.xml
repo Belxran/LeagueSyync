@@ -51,14 +51,14 @@
             android:layout_height="84dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/rounded_buttons"
-            android:padding="32dp"
+            android:padding="22dp"
             android:text="Entra"
             android:textColor="@color/white"
             android:textSize="12sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Social Login"
+            android:text="Social Media"
             android:textSize="18sp"
             android:textColor="@color/black"
             android:layout_marginTop="32dp"/>
