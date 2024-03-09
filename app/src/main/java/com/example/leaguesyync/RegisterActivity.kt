@@ -1,11 +1,10 @@
 package com.example.leaguesyync
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import org.json.JSONArray
-import java.io.File
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -20,7 +19,8 @@ class RegisterActivity : AppCompatActivity() {
         val etUsername = findViewById<EditText>(R.id.usernameEditText)
         val etPassword = findViewById<EditText>(R.id.confirmPasswordEditText)
 
-        btnSave.setOnClickListener {
+        btnSave.setOnClickListener { val intent = Intent(this, MenuPrincipal::class.java)
+            startActivity(intent)
             val name = etName.text.toString()
             val lastName1 = etLastName1.text.toString()
             val lastName2 = etLastName2.text.toString()
@@ -29,9 +29,7 @@ class RegisterActivity : AppCompatActivity() {
 
             // Crear un objeto Usuario con los datos ingresados
 
-            // Guardar el usuario en el archivo JSON
 
-            // Aquí puedes agregar más lógica, como mostrar un mensaje de éxito o redirigir a otra actividad
         }
     }
 }
