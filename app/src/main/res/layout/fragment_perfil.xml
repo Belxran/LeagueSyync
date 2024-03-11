@@ -69,15 +69,16 @@
                 android:id="@+id/divider_name_username"/>
 
             <!-- Nombre de usuario -->
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:id="@+id/ic_username"
-                android:layout_below="@id/textView_fullname"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/perfil"/>
 
             <!-- Línea divisoria -->
+
+            <ImageView
+                android:id="@+id/ic_username"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/textView_fullname"
+                android:layout_marginTop="31dp"
+                android:background="@drawable/perfil" />
 
             <TextView
                 android:id="@+id/textView_username"
@@ -86,7 +87,7 @@
                 android:layout_below="@id/divider_name_username"
                 android:layout_alignStart="@id/ic_username"
                 android:layout_marginStart="35dp"
-                android:layout_marginTop="11dp"
+                android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/ic_username"
                 android:text="Cargando..."
                 android:textSize="18sp" />
@@ -118,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/divider_user_birthday"
                 android:layout_marginStart="9dp"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="20dp"
                 android:layout_toEndOf="@id/ic_birthdate"
                 android:text="Cargando..."
                 android:textSize="18sp" />
