@@ -7,35 +7,39 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.leaguesyync.R
+import com.example.leaguesyync.Usuario
 import com.example.leaguesyync.databinding.FragmentPerfilBinding
 
 class PerfilFragment : Fragment() {
-
-    private var _binding: FragmentPerfilBinding? = null
-
-
-    private val binding get() = _binding!!
+    private lateinit var fullnameTextView: TextView
+    private lateinit var usernameTextView: TextView
+    private lateinit var birthdateTextView: TextView
+    private lateinit var emailTextView: TextView
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val perfilViewModel =
-            ViewModelProvider(this).get(PerfilViewModel::class.java)
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
-        _binding = FragmentPerfilBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        fullnameTextView = view.findViewById(R.id.textView_fullname)
+        usernameTextView = view.findViewById(R.id.textView_username)
+        birthdateTextView = view.findViewById(R.id.textView_birthdate)
+        emailTextView = view.findViewById(R.id.textView_email)
 
-        val textView: TextView = binding.textNotifications
-        perfilViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val usuario = obtenerDatosDelUsuario()
+
+        usuario?.let {
+            fullnameTextView.text = it.fullname
+            usernameTextView.text = it.username
+            birthdateTextView.text = it.birthdate
+            emailTextView.text = it.email
         }
-        return root
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-}
+    private fun obtenerDatosDelUsuario(): Usuario? {
+        return null
+    }}

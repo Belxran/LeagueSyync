@@ -1,22 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notifications.PerfilFragment">
 
-    <TextView
-        android:id="@+id/text_notifications"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#5CC09F">
+
+            <ImageView
+                android:id="@+id/imageView_perifl_dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/rounded_perfil"
+                android:src="@drawable/perfil_real"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView_show_welcome"
+                android:layout_below="@id/imageView_perifl_dp"
+                android:hint="Cargando..."
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:layout_margin="15dp"
+            android:background="@color/white">
+
+            <!-- Imagen de perfil -->
+            <ImageView
+                android:id="@+id/ic_profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/perfil"/>
+
+            <!-- Nombre -->
+            <TextView
+                android:id="@+id/textView_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/ic_profile"
+                android:layout_marginStart="10dp"
+                android:text="Cargando..."
+                android:textSize="18sp"/>
+
+            <!-- Línea divisoria -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textView_fullname"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:id="@+id/divider_name_username"/>
+
+            <!-- Nombre de usuario -->
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:id="@+id/ic_username"
+                android:layout_below="@id/textView_fullname"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/perfil"/>
+
+            <!-- Línea divisoria -->
+
+            <TextView
+                android:id="@+id/textView_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_name_username"
+                android:layout_alignStart="@id/ic_username"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="11dp"
+                android:layout_toEndOf="@id/ic_username"
+                android:text="Cargando..."
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textView_username"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:id="@+id/divider_user_birthday"
+                />
+
+            <!-- Fecha de nacimiento -->
+
+            <!-- Línea divisoria -->
+
+            <ImageView
+                android:id="@+id/ic_birthdate"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/divider_user_birthday"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/cumple" />
+
+            <TextView
+                android:id="@+id/textView_birthdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_user_birthday"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="17dp"
+                android:layout_toEndOf="@id/ic_birthdate"
+                android:text="Cargando..."
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textView_birthdate"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:id="@+id/divider_birthday_mail"/>
+
+            <!-- Correo -->
+
+            <ImageView
+                android:id="@+id/ic_email"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/divider_birthday_mail"
+                android:layout_marginTop="21dp"
+                android:background="@drawable/mail" />
+
+            <TextView
+                android:id="@+id/textView_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/ic_email"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/divider_birthday_mail"
+                android:text="Cargando..."
+                android:textSize="18sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textView_email"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:id="@+id/divider_final"/>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>
