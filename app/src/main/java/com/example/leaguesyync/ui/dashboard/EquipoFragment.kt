@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.leaguesyync.databinding.FragmentEscudoBinding
 
 class EquipoFragment : Fragment() {
 
     private var _binding: FragmentEscudoBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,16 +17,11 @@ class EquipoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val equipoViewModel =
-            ViewModelProvider(this).get(EquipoViewModel::class.java)
-
         _binding = FragmentEscudoBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //val textView: TextView = binding.textDashboard
-        equipoViewModel.text.observe(viewLifecycleOwner) {
-            //textView.text = it
-        }
+        // No es necesario ViewModel en este fragmento
+
         return root
     }
 
