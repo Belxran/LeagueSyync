@@ -16,45 +16,56 @@
             android:layout_height="160dp"
             android:src="@drawable/cuenta" />
 
-
-        <EditText
-            android:id="@+id/firstNameEditText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Nombre"
-            android:inputType="text"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <EditText
+                android:id="@+id/firstNameEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="7dp"
+                android:background="@drawable/rounded_corner"
+                android:hint="Nombre"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp" />
 
-        <EditText
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="7dp"
+                android:background="@drawable/rounded_corner"
+                android:hint="Primer Apellido"
+                android:gravity="center"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:id="@+id/lastName1EditText"/>
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Primer Apellido"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:inputType="textPassword"
-            android:id="@+id/lastName1EditText"/>
-        <EditText
-            android:id="@+id/lastName2EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Segundo Apellido"
-            android:inputType="text"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/lastName2EditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="7dp"
+                android:background="@drawable/rounded_corner"
+                android:hint="Segundo Apellido"
+                android:gravity="center"
+                android:inputType="text"
+                android:padding="18dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="15sp"/>
+        </LinearLayout>
 
         <EditText
 
@@ -63,6 +74,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_corner"
             android:hint="Username"
+            android:gravity="center"
             android:padding="18dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -76,6 +88,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_corner"
             android:hint="Contraseña"
+            android:gravity="center"
             android:inputType="textPassword"
             android:padding="18dp"
             android:textColor="@color/black"
@@ -89,6 +102,7 @@
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_corner"
             android:hint="Confirma contraseña"
+            android:gravity="center"
             android:padding="18dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
@@ -98,7 +112,7 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="65dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/rounded_buttons"
