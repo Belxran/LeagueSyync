@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -31,25 +31,25 @@
                 android:hint="Nombre"
                 android:gravity="center"
                 android:inputType="text"
-                android:padding="18dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/lastName1EditText"
-                android:layout_width="149dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="7dp"
                 android:layout_weight="1"
+                android:layout_margin="7dp"
                 android:background="@drawable/rounded_corner"
-                android:gravity="center"
                 android:hint="Primer Apellido"
-                android:inputType="textPassword"
-                android:padding="18dp"
+                android:gravity="center"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:id="@+id/lastName1EditText"/>
 
             <EditText
                 android:id="@+id/lastName2EditText"
@@ -61,54 +61,106 @@
                 android:hint="Segundo Apellido"
                 android:gravity="center"
                 android:inputType="text"
-                android:padding="18dp"
+                android:padding="16dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="15sp"/>
         </LinearLayout>
 
-        <EditText
 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Username"
-            android:gravity="center"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:inputType="text"
-            android:id="@+id/usernameEditText"/>
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Contraseña"
-            android:gravity="center"
-            android:inputType="textPassword"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp" />
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-        <EditText
+                <EditText
+                    android:id="@+id/usernameEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:hint="Username"
+                    android:gravity="center"
+                    android:padding="18dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:inputType="text"
+                    />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/rounded_corner"
-            android:hint="Confirma contraseña"
-            android:gravity="center"
-            android:padding="18dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:inputType="textPassword"
-            android:id="@+id/passwordConfirmEditText"/>
+                <EditText
+                    android:id="@+id/passwordEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:hint="Contraseña"
+                    android:gravity="center"
+                    android:inputType="textPassword"
+                    android:padding="18dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    />
+
+                <EditText
+                    android:id="@+id/passwordConfirmEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:hint="Confirma contraseña"
+                    android:gravity="center"
+                    android:padding="18dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:inputType="textPassword"
+                    />
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/rounded_corner"
+                    android:hint="Correo electrónico"
+                    android:gravity="center"
+                    android:padding="18dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="20sp"
+                    android:inputType="text"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/fechaNacimiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/rounded_corner"
+                        android:hint="Fecha nacimiento (DD/MM/AA)"
+                        android:gravity="center"
+                        android:padding="18dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:textSize="15sp"
+                        android:inputType="text"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/calendar"
+                        android:layout_gravity="center_vertical"/>
+
+                </LinearLayout>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/registerButton"
