@@ -1,5 +1,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="#38AAFE" /> <!-- Color de fondo del botón -->
-    <corners android:radius="20dp" /> <!-- Radio de las esquinas para hacerlo redondeado -->
+    <solid android:color="#38AAFE" />
+    <corners android:radius="20dp" />
 </shape>

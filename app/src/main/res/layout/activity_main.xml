@@ -25,24 +25,24 @@
         android:src="@drawable/logo2transparent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/loginButton"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Empieza"
-        android:background="@drawable/rounded_buttons"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"/>
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_buttons"
+        android:text="Empieza"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoImageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

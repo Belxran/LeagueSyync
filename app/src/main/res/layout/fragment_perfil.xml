@@ -19,9 +19,9 @@
                 android:id="@+id/imageView_perifl_dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_centerInParent="true"
                 android:background="@drawable/rounded_perfil"
-                android:src="@drawable/perfil_real"
-                android:layout_centerInParent="true" />
+                android:src="@drawable/perfil_real" />
 
             <TextView
                 android:layout_width="wrap_content"
