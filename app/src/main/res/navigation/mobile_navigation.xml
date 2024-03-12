@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_perfil">
+    app:startDestination="@+id/navigation_home">
     <fragment
         android:id="@+id/navigation_liga"
         android:name="com.example.leaguesyync.ui.dashboard.EquipoFragment"
@@ -38,6 +38,13 @@
             app:popExitAnim="@animator/nav_default_pop_enter_anim" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_liga"
+            app:destination="@id/navigation_liga"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@animator/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_liga2"
             app:destination="@id/navigation_liga"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@animator/nav_default_enter_anim"
