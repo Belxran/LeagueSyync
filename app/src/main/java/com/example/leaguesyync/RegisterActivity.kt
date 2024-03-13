@@ -1,10 +1,12 @@
 package com.example.leaguesyync
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -12,25 +14,33 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        val etFechaNacimiento = findViewById<EditText>(R.id.fechaNacimiento)
+        val calendar = Calendar.getInstance()
+
+        etFechaNacimiento.setOnClickListener {
+            val datePicker = DatePickerDialog(
+                this,
+                DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
+                    etFechaNacimiento.setText(
+                        String.format(
+                            "%02d/%02d/%02d",
+                            dayOfMonth,
+                            month + 1,
+                            year % 100
+                        )
+                    )
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePicker.show()
+        }
+
         val btnSave = findViewById<Button>(R.id.registerButton)
-        val etName = findViewById<EditText>(R.id.firstNameEditText)
-        val etLastName1 = findViewById<EditText>(R.id.lastName1EditText)
-        val etLastName2 = findViewById<EditText>(R.id.lastName2EditText)
-        val etUsername = findViewById<EditText>(R.id.usernameEditText)
-        val etPassword = findViewById<EditText>(R.id.passwordEditText)
-        val etConfirmPassword = findViewById<EditText>(R.id.passwordConfirmEditText)
-
-
-        btnSave.setOnClickListener { val intent = Intent(this, MenuPrincipal::class.java)
+        btnSave.setOnClickListener {
+            val intent = Intent(this, MenuPrincipal::class.java)
             startActivity(intent)
-            val name = etName.text.toString()
-            val lastName1 = etLastName1.text.toString()
-            val lastName2 = etLastName2.text.toString()
-            val username = etUsername.text.toString()
-            val password = etPassword.text.toString()
-
-
-
         }
     }
 }
