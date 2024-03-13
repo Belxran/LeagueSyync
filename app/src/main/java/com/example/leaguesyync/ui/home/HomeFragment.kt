@@ -23,6 +23,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+
         binding.createleague.setOnClickListener {
             Log.d("HomeFragment", "CardView clicked")
             startActivity(Intent(activity, CrearLiga::class.java))

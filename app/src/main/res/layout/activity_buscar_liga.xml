@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuscarLigaActivity">
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#5CC09F">
+
+        <ImageView
+            android:id="@+id/imageView_perifl_dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/trofeo_ar" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextCodigoLiga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerLayout"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Código de la Liga"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/buttonBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:background="@drawable/rounded_buttons"
+        android:layout_below="@id/editTextCodigoLiga"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Aquí se mostrarán las ligas encontradas en formato CardView -->
+    <!-- Puedes agregar un RecyclerView o un GridLayout para mostrar las CardViews -->
+
+</RelativeLayout>
