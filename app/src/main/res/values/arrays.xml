@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Array para el número de equipos -->
+    <string-array name="num_teams">
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>32</item>
+    </string-array>
+
+    <!-- Array para los deportes -->
+    <string-array name="sports">
+        <item>Fútbol</item>
+        <item>Basketball</item>
+        <item>Balónmano</item>
+    </string-array>
+</resources>
