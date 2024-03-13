@@ -30,21 +30,7 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_perfil"
-            app:destination="@id/navigation_perfil"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@animator/nav_default_enter_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@animator/nav_default_pop_enter_anim" />
-        <action
             android:id="@+id/action_navigation_home_to_navigation_liga"
-            app:destination="@id/navigation_liga"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@animator/nav_default_enter_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@animator/nav_default_pop_enter_anim" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_liga2"
             app:destination="@id/navigation_liga"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@animator/nav_default_enter_anim"

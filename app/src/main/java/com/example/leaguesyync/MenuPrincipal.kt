@@ -1,6 +1,7 @@
 package com.example.leaguesyync
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -26,13 +27,19 @@ class MenuPrincipal : AppCompatActivity() {
             setOf(
                 R.id.navigation_liga, R.id.navigation_home, R.id.navigation_perfil
             )
+
+
         )
+        val topLevelDestinations = appBarConfiguration.topLevelDestinations
+
+        for (destinationId in topLevelDestinations) {
+            Log.d("AppBarConfiguration", "ID de destino configurado: $destinationId")}
 
         navView.setupWithNavController(navController)
 
 
 
-    }
+    }}
 
 
-}
+
