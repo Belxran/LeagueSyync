@@ -4,6 +4,7 @@ package com.example.leaguesyync
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -25,7 +26,8 @@ class CrearEquiposActivity : AppCompatActivity() {
         val recyclerViewEquipos = findViewById<RecyclerView>(R.id.recyclerViewEquipos)
         equiposAdapter = EquiposAdapter(equipos)
         recyclerViewEquipos.adapter = equiposAdapter
-        recyclerViewEquipos.layoutManager = LinearLayoutManager(this)
+        recyclerViewEquipos.layoutManager = GridLayoutManager(this, 2)
+
 
         findViewById<TextView>(R.id.buttonConfirmarEquipos).setOnClickListener {
             finish()
