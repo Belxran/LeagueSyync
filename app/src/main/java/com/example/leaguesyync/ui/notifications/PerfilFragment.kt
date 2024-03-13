@@ -1,21 +1,18 @@
 package com.example.leaguesyync.ui.notifications
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.leaguesyync.R
-import com.example.leaguesyync.Usuario
-import com.example.leaguesyync.databinding.FragmentPerfilBinding
 
 class PerfilFragment : Fragment() {
-    private lateinit var fullnameTextView: TextView
-    private lateinit var usernameTextView: TextView
-    private lateinit var birthdateTextView: TextView
-    private lateinit var emailTextView: TextView
+
+    private lateinit var buttonChangePassword: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,23 +20,40 @@ class PerfilFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_perfil, container, false)
 
-        fullnameTextView = view.findViewById(R.id.textView_fullname)
-        usernameTextView = view.findViewById(R.id.textView_username)
-        birthdateTextView = view.findViewById(R.id.textView_birthdate)
-        emailTextView = view.findViewById(R.id.textView_email)
+        buttonChangePassword = view.findViewById(R.id.cambiarcontrasena_button)
 
-        val usuario = obtenerDatosDelUsuario()
-
-        usuario?.let {
-            fullnameTextView.text = it.fullname
-            usernameTextView.text = it.username
-            birthdateTextView.text = it.birthdate
-            emailTextView.text = it.email
+        buttonChangePassword.setOnClickListener {
+            showChangePasswordDialog()
         }
 
         return view
     }
 
-    private fun obtenerDatosDelUsuario(): Usuario? {
-        return null
-    }}
+    private fun showChangePasswordDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.dialog_change_password, null)
+        val editTextCurrentPassword = dialogView.findViewById<EditText>(R.id.editText_current_password)
+        val editTextNewPassword = dialogView.findViewById<EditText>(R.id.editText_new_password)
+        val editTextConfirmNewPassword = dialogView.findViewById<EditText>(R.id.editText_confirm_new_password)
+
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setTitle("Cambiar contraseña")
+            .setPositiveButton("Cambiar") { dialog, which ->
+                val currentPassword = editTextCurrentPassword.text.toString()
+                val newPassword = editTextNewPassword.text.toString()
+                val confirmNewPassword = editTextConfirmNewPassword.text.toString()
+
+                if (newPassword == confirmNewPassword) {
+                    // Aquí puedes llamar a una función o método para cambiar la contraseña
+                    // por ejemplo: changePassword(currentPassword, newPassword)
+                } else {
+                    // Muestra un mensaje de error si las contraseñas no coinciden
+                    // Por ejemplo: showToast("Las contraseñas no coinciden")
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+
+        val alertDialog = dialogBuilder.create()
+        alertDialog.show()
+    }
+}
