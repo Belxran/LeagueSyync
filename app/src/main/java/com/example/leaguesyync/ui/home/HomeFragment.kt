@@ -2,12 +2,12 @@ package com.example.leaguesyync
 import android.content.Intent
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.leaguesyync.databinding.FragmentHomeBinding
-import com.example.leaguesyync.CrearLiga
 
 
 class HomeFragment : Fragment() {
@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         binding.createleague.setOnClickListener {
+            Log.d("HomeFragment", "CardView clicked")
             startActivity(Intent(activity, CrearLiga::class.java))
         }
 
