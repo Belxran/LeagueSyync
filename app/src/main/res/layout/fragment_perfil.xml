@@ -181,7 +181,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_buttons_res"
+            android:background="@color/bluepau"
             android:text="CERRAR CESION"
             android:textColor="@color/white"
             android:textSize="16sp"

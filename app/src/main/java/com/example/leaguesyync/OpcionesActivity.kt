@@ -20,8 +20,8 @@ class OpcionesActivity : AppCompatActivity() {
 
         binding.buttonUnirseEquipo.setOnClickListener {
 
-            val intent = Intent(this, UnirseEquipoActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, UnirseEquipoActivity::class.java)
+            //startActivity(intent)
         }
 
         binding.buttonVerJornadas.setOnClickListener {

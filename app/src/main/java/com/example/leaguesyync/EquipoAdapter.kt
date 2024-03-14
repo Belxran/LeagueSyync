@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EquiposAdapter(private val equipos: List<String>) :
-    RecyclerView.Adapter<EquiposAdapter.EquipoViewHolder>() {
+class EquipoAdapter(private val equipos: List<String>) :
+    RecyclerView.Adapter<EquipoAdapter.EquipoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquipoViewHolder {
         val view = LayoutInflater.from(parent.context)

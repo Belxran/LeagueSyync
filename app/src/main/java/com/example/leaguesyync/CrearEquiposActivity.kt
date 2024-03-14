@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CrearEquiposActivity : AppCompatActivity() {
 
-    private lateinit var equiposAdapter: EquiposAdapter
+    private lateinit var equiposAdapter: EquipoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class CrearEquiposActivity : AppCompatActivity() {
         }
 
         val recyclerViewEquipos = findViewById<RecyclerView>(R.id.recyclerViewEquipos)
-        equiposAdapter = EquiposAdapter(equipos)
+        equiposAdapter = EquipoAdapter(equipos)
         recyclerViewEquipos.adapter = equiposAdapter
         recyclerViewEquipos.layoutManager = GridLayoutManager(this, 2)
 

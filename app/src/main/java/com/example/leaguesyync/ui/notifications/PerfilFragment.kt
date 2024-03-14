@@ -23,10 +23,10 @@ class PerfilFragment : Fragment() {
         buttonChangePassword = view.findViewById(R.id.cambiarcontrasena_button)
 
         buttonChangePassword.setOnClickListener {
-            showChangePasswordDialog()
+        showChangePasswordDialog()
         }
 
-        return view
+         return view
     }
 
     private fun showChangePasswordDialog() {
