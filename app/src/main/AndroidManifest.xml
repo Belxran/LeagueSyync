@@ -13,12 +13,26 @@
         android:theme="@style/Theme.LeagueSyync"
         tools:targetApi="31">
         <activity
+            android:name=".UnirseEquipoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerJornadasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerClasificacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarAvatarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OpcionesActivity"
+            android:exported="false" />
+        <activity
             android:name=".BuscarLigaActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".CrearEquiposActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".CrearLiga"
             android:exported="false" />

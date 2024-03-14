@@ -33,26 +33,7 @@ class BuscarLigaActivity : AppCompatActivity() {
         }
     }
 
-    private fun mostrarCardViewLiga(liga: Liga) {
-        val codigo = binding.editTextCodigoLiga.text.toString()
-        val ligasEncontradas: List<Liga> = obtenerLigasEncontradas(codigo)
 
-        // Asignar el valor de la liga encontrada a la variable
-        ligaEncontrada = liga
-
-        // Configurar el RecyclerView y el adaptador
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewLigas)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        val adapter = LigaAdapter(ligasEncontradas)
-        recyclerView.adapter = adapter
-
-        // Manejar el clic en el RecyclerView
-        adapter.setOnItemClickListener(object : LigaAdapter.OnItemClickListener {
-            override fun onItemClick(position: Int) {
-                mostrarDialogoUnirseALiga()
-            }
-        })
-    }
 
     private fun obtenerLigasEncontradas(codigo: String): List<Liga> {
         return ligasDeEjemplo.filter { it.codigo == codigo }
@@ -69,10 +50,28 @@ class BuscarLigaActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
-    private fun mostrarDialogoUnirseALiga() {
+    private fun mostrarCardViewLiga(liga: Liga) {
+        val codigo = binding.editTextCodigoLiga.text.toString()
+        val ligasEncontradas: List<Liga> = obtenerLigasEncontradas(codigo)
+
+        ligaEncontrada = liga
+
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerViewLigas)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        val adapter = LigaAdapter(ligasEncontradas)
+        recyclerView.adapter = adapter
+
+        adapter.setOnItemClickListener(object : LigaAdapter.OnItemClickListener {
+            override fun onItemClick(liga: Liga) {
+                mostrarDialogoUnirseALiga(liga) // Pasar la liga seleccionada como parámetro
+            }
+        })
+    }
+
+    fun mostrarDialogoUnirseALiga(liga: Liga) {
         val alertDialogBuilder = AlertDialog.Builder(this)
         alertDialogBuilder.setTitle("Unirse a la Liga")
-        alertDialogBuilder.setMessage("¿Quieres unirte a la Liga ${ligaEncontrada?.nombre}?")
+        alertDialogBuilder.setMessage("¿Quieres unirte a la Liga ${liga.nombre}?") // Usar el nombre de la liga seleccionada
         alertDialogBuilder.setPositiveButton("Sí") { dialog, which ->
             // Implementa aquí la lógica para unirse a la liga
             dialog.dismiss()
@@ -82,5 +81,4 @@ class BuscarLigaActivity : AppCompatActivity() {
         }
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
-    }
-}
+    }}
