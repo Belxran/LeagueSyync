@@ -43,7 +43,8 @@
         android:background="@drawable/rounded_buttons"
         android:layout_below="@id/editTextCodigoLiga"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:textColor="@color/fondo"/>
 
     <!-- RecyclerView para mostrar las ligas encontradas -->
     <androidx.recyclerview.widget.RecyclerView

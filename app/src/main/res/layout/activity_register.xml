@@ -151,7 +151,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_buttons"
             android:text="CREAR USUARIO"
-            android:textColor="@color/white"
+            android:textColor="@color/fondo"
             android:textSize="16sp"
             android:paddingTop="12dp"
             android:paddingBottom="12dp"/>

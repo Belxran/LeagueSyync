@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:text="LIGA POLITECNICS"
             android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textColor="@color/fondo"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

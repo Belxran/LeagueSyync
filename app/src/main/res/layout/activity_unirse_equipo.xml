@@ -4,25 +4,27 @@
     android:layout_height="match_parent"
     android:background="@color/fondo">
     <RelativeLayout
+        android:id="@+id/layout_superior"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/fondo_arriba"/>
+        android:background="@color/fondo_arriba">
+        <ImageView
+            android:id="@+id/imageView_perifl_dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/trofeo_ar" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textViewSeleccionarEquipo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecciona un equipo:"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewEquipos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewSeleccionarEquipo"
+        android:layout_below="@id/layout_superior"
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"/>
@@ -35,6 +37,7 @@
         android:text="Unirse al equipo"
         android:layout_below="@id/recyclerViewEquipos"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:textColor="@color/fondo"/>
 
 </RelativeLayout>

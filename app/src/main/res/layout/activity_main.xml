@@ -18,7 +18,8 @@
         android:background="@drawable/rounded_buttons"
         android:text="Iniciar sesión"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/fondo"/>
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -31,7 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        />
 
     <Button
         android:id="@+id/registerButton"
@@ -42,6 +44,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_buttons"
         android:text="Empieza"
+        android:textColor="@color/fondo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
