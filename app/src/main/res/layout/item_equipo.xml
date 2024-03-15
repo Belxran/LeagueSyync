@@ -7,8 +7,7 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
     app:contentPaddingTop="60dp"
-    android:backgroundTint="@color/confirm_boton"
-    >
+    android:backgroundTint="@color/confirm_boton">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,14 +28,7 @@
             android:textStyle="bold"
             android:textAlignment="center" />
 
-        <EditText
-            android:id="@+id/editTextNombreEquipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Editar nombre del equipo"
-            android:textAlignment="center"
-            android:maxLines="1"
-            android:inputType="text" />
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

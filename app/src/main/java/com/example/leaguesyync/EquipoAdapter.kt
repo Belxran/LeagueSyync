@@ -6,8 +6,14 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EquipoAdapter(private val equipos: MutableList<String>) :
+class EquipoAdapter(private val equipos: List<Equipo>, listener: (Equipo) -> Unit) :
     RecyclerView.Adapter<EquipoAdapter.EquipoViewHolder>() {
+
+    private var listener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener?) {
+        this.listener = listener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquipoViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,11 +30,18 @@ class EquipoAdapter(private val equipos: MutableList<String>) :
         return equipos.size
     }
 
-    class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class EquipoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nombreEquipoTextView: TextView = itemView.findViewById(R.id.nombreEquipoTextView)
 
-        fun bind(equipo: String) {
-            nombreEquipoTextView.text = equipo
+        fun bind(equipo: Equipo) {
+            nombreEquipoTextView.text = equipo.nombre
+            itemView.setOnClickListener {
+                listener?.onItemClick(equipo)
+            }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(equipo: Equipo)
     }
 }
