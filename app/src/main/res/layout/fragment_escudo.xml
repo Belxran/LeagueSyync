@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.dashboard.EquipoFragment">
+    tools:context=".ui.dashboard.EquipoFragment"
+    android:background="@color/fondo">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#5CC09F">
+        android:background="@color/fondo_arriba">
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

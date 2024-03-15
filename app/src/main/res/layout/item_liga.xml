@@ -5,13 +5,16 @@
     android:layout_height="120dp"
     android:layout_margin="20dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    android:backgroundTint="@color/confirm_boton"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
+        android:background="@color/confirm_boton"
         >
 
         <ImageView

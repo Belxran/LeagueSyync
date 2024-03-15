@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.PerfilFragment">
+    tools:context=".ui.notifications.PerfilFragment"
+    android:background="@color/fondo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="#5CC09F">
+            android:background="@color/fondo_arriba">
 
             <ImageView
                 android:id="@+id/imageView_perifl_dp"
@@ -181,8 +182,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_buttons_res"
-            android:text="CERRAR CESION"
+            android:background="@color/confirm_boton"
+            android:text="CERRAR SESIÓN"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:paddingTop="12dp"

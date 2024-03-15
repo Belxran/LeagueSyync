@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuscarLigaActivity">
+    tools:context=".BuscarLigaActivity"
+    android:background="@color/fondo">
 
     <!-- Header Layout con una imagen de trofeo -->
     <RelativeLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#5CC09F">
+        android:background="@color/fondo_arriba">
 
         <ImageView
             android:id="@+id/imageView_perifl_dp"

@@ -3,4 +3,13 @@
     <color name="black">#FF000000</color>
     <color name="bluepau">#38AAFE</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="fondo">#f0f0f0</color>
+    <color name="fondo_arriba">#3a6b9c</color>
+    <color name="confirm_boton">#4cafcd</color>
+    <color name="boton_principal">#2b4873</color>
+    <color name="nave">#1c314f</color>
+
+
+
+
 </resources>

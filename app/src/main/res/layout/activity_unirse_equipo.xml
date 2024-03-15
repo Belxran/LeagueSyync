@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/fondo_arriba"/>
 
     <TextView
         android:id="@+id/textViewSeleccionarEquipo"
@@ -26,6 +31,7 @@
         android:id="@+id/buttonUnirseEquipo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/confirm_boton"
         android:text="Unirse al equipo"
         android:layout_below="@id/recyclerViewEquipos"
         android:layout_centerHorizontal="true"

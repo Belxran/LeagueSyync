@@ -4,13 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CrearLiga">
+    tools:context=".CrearLiga"
+    android:background="@color/fondo">
 
     <RelativeLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="#5CC09F">
+        android:background="@color/fondo_arriba">
 
         <ImageButton
             android:id="@+id/back_button"
@@ -64,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@color/confirm_boton"
             android:text="Crear liga"/>
 
     </LinearLayout>
