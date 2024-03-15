@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class EquipoAdapter(private val equipos: List<String>) :
+class EquipoAdapter(private val equipos: MutableList<String>) :
     RecyclerView.Adapter<EquipoAdapter.EquipoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EquipoViewHolder {
