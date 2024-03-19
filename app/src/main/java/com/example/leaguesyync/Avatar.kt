@@ -7,5 +7,5 @@ data class Avatar(
     val equip: Equipo,
     val usuari: Usuario,
     val descripcio: String?,
-    val lliga: Liga?
+    val lliga: Lliga?
 )

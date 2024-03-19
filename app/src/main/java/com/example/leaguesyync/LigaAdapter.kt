@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class LigaAdapter(private val ligas: List<Liga>) : RecyclerView.Adapter<LigaAdapter.ViewHolder>() {
+class LigaAdapter(private val ligas: List<Lliga>) : RecyclerView.Adapter<LigaAdapter.ViewHolder>() {
 
     private lateinit var context: Context
 
@@ -28,7 +28,7 @@ class LigaAdapter(private val ligas: List<Liga>) : RecyclerView.Adapter<LigaAdap
                 (context as BuscarLigaActivity).mostrarDialogoUnirseALiga(liga)
             } else {
                 val intent = Intent(it.context, OpcionesActivity::class.java)
-                intent.putExtra("liga_nombre", liga.nombre) // Pasar nombre de la liga u otros datos necesarios
+                intent.putExtra("liga_nombre", liga.nom) // Pasar nombre de la liga u otros datos necesarios
                 it.context.startActivity(intent)
             }
         }
@@ -44,8 +44,8 @@ class LigaAdapter(private val ligas: List<Liga>) : RecyclerView.Adapter<LigaAdap
             itemView.setOnClickListener(this)
         }
 
-        fun bind(liga: Liga) {
-            nombreLigaTextView.text = liga.nombre
+        fun bind(liga: Lliga) {
+            nombreLigaTextView.text = liga.nom
         }
 
         override fun onClick(view: View) {
@@ -58,7 +58,7 @@ class LigaAdapter(private val ligas: List<Liga>) : RecyclerView.Adapter<LigaAdap
     }
 
     interface OnItemClickListener {
-        fun onItemClick(liga: Liga)
+        fun onItemClick(liga: Lliga)
     }
 
     private var listener: OnItemClickListener? = null
