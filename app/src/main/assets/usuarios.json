@@ -1,0 +1,47 @@
+{
+    "usuarios": [
+      {
+        "fullname": "Juan Pérez",
+        "username": "juanperez92",
+        "birthdate": "1992-05-15",
+        "email": "juanperez92@example.com",
+        "contraseña": "password123"
+      },
+      {
+        "fullname": "María García",
+        "username": "mariagarcia85",
+        "birthdate": "1985-08-23",
+        "email": "mariagarcia85@example.com",
+        "contraseña": "securepass456"
+      },
+      {
+        "fullname": "Pedro Martínez",
+        "username": "pedromtz78",
+        "birthdate": "1978-12-10",
+        "email": "pedromtz78@example.com",
+        "contraseña": "strongpwd789"
+      },
+      {
+        "fullname": "Ana López",
+        "username": "analopez89",
+        "birthdate": "1989-03-30",
+        "email": "analopez89@example.com",
+        "contraseña": "abc123"
+      },
+      {
+        "fullname": "Carlos Sánchez",
+        "username": "carlossanchez80",
+        "birthdate": "1980-06-25",
+        "email": "carlossanchez80@example.com",
+        "contraseña": "qwerty456"
+      },
+      {
+        "fullname": "Laura Rodríguez",
+        "username": "laurarodriguez87",
+        "birthdate": "1987-11-12",
+        "email": "laurarodriguez87@example.com",
+        "contraseña": "passpasspass"
+      }
+    ]
+  }
+  

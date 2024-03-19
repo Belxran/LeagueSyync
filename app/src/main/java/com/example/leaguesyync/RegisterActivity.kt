@@ -93,7 +93,7 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
-        // Validar que las contraseñas coincidan
+
         if (password != confirmPassword) {
             showToast("Las contraseñas no coinciden.")
             return
@@ -112,7 +112,6 @@ class RegisterActivity : AppCompatActivity() {
         val datePicker = DatePickerDialog(
             this,
             DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                // Formatear la fecha seleccionada y mostrarla en el EditText
                 val selectedDate = Calendar.getInstance()
                 selectedDate.set(year, month, dayOfMonth)
                 val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
