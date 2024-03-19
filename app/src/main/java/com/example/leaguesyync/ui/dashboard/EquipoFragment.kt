@@ -7,16 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leaguesyync.Liga
+import com.example.leaguesyync.Esport
 import com.example.leaguesyync.LigaAdapter
+import com.example.leaguesyync.Lliga
 import com.example.leaguesyync.R
 
 class EquipoFragment : Fragment() {
 
     private val ligasDeEjemplo = listOf(
-        Liga("Liga Kintos01", "Descripción de la Liga 1", "123", 4, "FUTBOL"),
-        Liga("Liga Trabajo", "Descripción de la Liga 2", "456", 8, "BALONCESTO"),
-        Liga("Liga DAM/DAW", "Descripción de la Liga 3", "789", 16, "BALONMANO")
+        Lliga(1, "LigaPolitecnics", Esport(1, "Futbol", 11)),
+        Lliga(2, "LigaPolitecnics2", Esport(1, "Futbol", 11)),
+        Lliga(3, "LigaPolitecnics3", Esport(1, "Futbol", 11)),
     )
 
     private lateinit var recyclerView: RecyclerView

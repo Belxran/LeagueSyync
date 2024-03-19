@@ -1,4 +1,4 @@
-package com.example.leaguesyync
+package com.example.leaguesyync.crear
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
