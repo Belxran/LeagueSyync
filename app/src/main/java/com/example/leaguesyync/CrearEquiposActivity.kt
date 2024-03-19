@@ -20,7 +20,17 @@ class CrearEquiposActivity : AppCompatActivity() {
         val numEquipos = intent.getIntExtra("NUMERO_EQUIPOS", 0)
         val equipos = mutableListOf<Equipo>()
         for (i in 1..numEquipos) {
-            equipos.add(Equipo("Equipo $i", "url_escudo_$i", 20, 10))
+            equipos.add(Equipo(  id = 1,
+                nom = "Equip 1",
+                lliga = Lliga(1, "Liga 1", Esport(1,"Futbol", 16)),
+                codiEquip = "1",
+                mascota = "null",
+                color1 = "null",
+                color2 = "null",
+                escut = "null",
+                partitsGuanyats = 0,
+                partitsEmpatats = 0,
+                partitsPerduts = 0))
         }
 
         val recyclerViewEquipos = findViewById<RecyclerView>(R.id.recyclerViewEquipos)
@@ -42,12 +52,12 @@ class CrearEquiposActivity : AppCompatActivity() {
         builder.setTitle("Editar nombre del equipo")
 
         val input = EditText(this)
-        input.setText(equipo.nombre)
+        input.setText(equipo.nom)
         builder.setView(input)
 
         builder.setPositiveButton("Aceptar") { dialog, which ->
             val newName = input.text.toString()
-            equipo.nombre = newName
+            equipo.nom = newName
             equiposAdapter.notifyDataSetChanged()
         }
         builder.setNegativeButton("Cancelar") { dialog, which -> dialog.cancel() }

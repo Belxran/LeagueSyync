@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 data class Equipo(
     val id: Int,
-    val nom: String,
+    var nom: String,
     val lliga: Lliga,
     val codiEquip: String,
     val mascota: String,

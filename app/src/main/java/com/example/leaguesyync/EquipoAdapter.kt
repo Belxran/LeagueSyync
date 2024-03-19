@@ -34,7 +34,7 @@ class EquipoAdapter(private val equipos: List<Equipo>, listener: (Equipo) -> Uni
         private val nombreEquipoTextView: TextView = itemView.findViewById(R.id.nombreEquipoTextView)
 
         fun bind(equipo: Equipo) {
-            nombreEquipoTextView.text = equipo.nombre
+            nombreEquipoTextView.text = equipo.nom
             itemView.setOnClickListener {
                 listener?.onItemClick(equipo)
             }

@@ -13,9 +13,20 @@ class UnirseEquipoActivity : AppCompatActivity() {
     private lateinit var adapter: EquipoAdapterUnirse
     private var equipoSeleccionado: Equipo? = null
     private val equiposDisponibles = listOf(
-        Equipo(1, "Equip 1", "LligaPolitecnics", 1, "Colom", "Blau", "Vermell", "escut", 10, 2, 6),
-        Equipo(2, "Equip 2", , 2, "Colom", "Blau", "Vermell", "escut", 10, 2, 6))
-
+        Equipo(
+            id = 1,
+            nom = "Equip 1",
+            lliga = Lliga(1, "Liga 1", Esport(1,"Futbol", 2)),
+            codiEquip = "1",
+            mascota = "Colom",
+            color1 = "Blau",
+            color2 = "Vermell",
+            escut = "escut",
+            partitsGuanyats = 10,
+            partitsEmpatats = 2,
+            partitsPerduts = 6
+        )
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
