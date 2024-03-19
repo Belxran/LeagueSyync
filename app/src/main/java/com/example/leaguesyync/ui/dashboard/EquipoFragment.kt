@@ -16,7 +16,7 @@ class EquipoFragment : Fragment() {
 
     private val ligasDeEjemplo = listOf(
         Lliga(1, "LigaPolitecnics", Esport(1, "Futbol", 11)),
-        Lliga(2, "LigaPolitecnics2", Esport(1, "Futbol", 11)),
+        Lliga(2, "LigaKintos01", Esport(1, "Futbol", 11)),
         Lliga(3, "LigaPolitecnics3", Esport(1, "Futbol", 11)),
     )
 
