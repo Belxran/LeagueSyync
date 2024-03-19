@@ -1,5 +1,4 @@
 package com.example.leaguesyync
-import org.json.JSONObject
 
 data class Usuario(
     val fullname: String,

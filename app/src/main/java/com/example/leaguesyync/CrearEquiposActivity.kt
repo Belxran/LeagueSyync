@@ -25,10 +25,8 @@ class CrearEquiposActivity : AppCompatActivity() {
 
         val recyclerViewEquipos = findViewById<RecyclerView>(R.id.recyclerViewEquipos)
 
-        // Define el listener para el adaptador
         val listener: (Equipo) -> Unit = { equipo -> mostrarDialogoEditarNombreEquipo(equipo) }
 
-        // Inicializa el adaptador con el listener definido
         equiposAdapter = EquipoAdapter(equipos, listener)
 
         recyclerViewEquipos.adapter = equiposAdapter
@@ -49,7 +47,6 @@ class CrearEquiposActivity : AppCompatActivity() {
 
         builder.setPositiveButton("Aceptar") { dialog, which ->
             val newName = input.text.toString()
-            // Actualizar el nombre del equipo
             equipo.nombre = newName
             equiposAdapter.notifyDataSetChanged()
         }

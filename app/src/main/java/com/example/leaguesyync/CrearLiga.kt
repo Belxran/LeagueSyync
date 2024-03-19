@@ -16,7 +16,6 @@ class CrearLiga : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        // Aquí establece el evento de clic del botón para continuar
         binding.buttonCreateLeague.setOnClickListener {
             val numEquipos = binding.spinnerNumTeams.selectedItem.toString().toInt()
             val intent = Intent(this, CrearEquiposActivity::class.java)

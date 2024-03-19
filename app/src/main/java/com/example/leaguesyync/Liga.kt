@@ -1,6 +1,6 @@
 package com.example.leaguesyync
 
-// Liga.kt
+
 data class Liga(
     val nombre: String,
     val descripcion: String,
