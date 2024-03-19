@@ -1,4 +1,4 @@
-package com.example.leaguesyync.crear
+package com.example.leaguesyync
 
 
 import android.os.Bundle
