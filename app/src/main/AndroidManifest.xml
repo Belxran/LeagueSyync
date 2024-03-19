@@ -13,7 +13,7 @@
         android:theme="@style/Theme.LeagueSyync"
         tools:targetApi="31" >
         <activity
-            android:name=".CrearAvatarActivity"
+            android:name=".crear.CrearAvatarActivity"
             android:exported="false" />
         <activity
             android:name=".UnirseEquipoActivity"
@@ -34,10 +34,10 @@
             android:name=".BuscarLigaActivity"
             android:exported="false" />
         <activity
-            android:name=".CrearEquiposActivity"
+            android:name=".crear.CrearEquiposActivity"
             android:exported="false" />
         <activity
-            android:name=".CrearLiga"
+            android:name=".crear.CrearLiga"
             android:exported="false" />
         <activity
             android:name=".MenuPrincipal"

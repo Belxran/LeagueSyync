@@ -1,9 +1,10 @@
-package com.example.leaguesyync
+package com.example.leaguesyync.crear
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.example.leaguesyync.R
 import com.example.leaguesyync.databinding.CrearLigaBinding
 
 
