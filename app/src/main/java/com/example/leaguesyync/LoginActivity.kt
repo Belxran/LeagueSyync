@@ -3,52 +3,73 @@ package com.example.leaguesyync
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.google.gson.Gson
 import android.widget.Button
-import android.widget.ImageView
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var usuarios: List<Usuario>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        val facebookButton = findViewById<ImageView>(R.id.facebook_btn)
-        val googleButton = findViewById<ImageView>(R.id.google_btn)
-        val appleButton = findViewById<ImageView>(R.id.apple_btn)
 
-        // Cargar usuarios desde el archivo JSON
-        cargarUsuariosDesdeJSON("usuarios.json")
+        cargarUsuariosDesdeJSON()
+
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val usernameEditText = findViewById<EditText>(R.id.usernameEditText)
+        val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
 
         loginButton.setOnClickListener {
-            // Datos de inicio de sesión de prueba
-            val username = "usuario1"
-            val contraseña = "contraseña1"
-
-            // Verificación del inicio de sesión
-            if (iniciarSesion(username, contraseña)) {
-                println("Inicio de sesión exitoso para el usuario: $username")
+            val username = usernameEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            val usuario = usuarios.find { it.username == username && it.contraseña == password }
+            if (usuario != null) {
+                mostrarMensajeExito("Inicio de sesión exitoso.")
             } else {
-                println("Error: Nombre de usuario o contraseña incorrectos")
+                mostrarMensajeError("Nombre de usuario o contraseña incorrectos.")
             }
         }
-
     }
 
-    private fun cargarUsuariosDesdeJSON(jsonPath: String) {
-        val gson = Gson()
-        val inputStream = assets.open(jsonPath)
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        usuarios = gson.fromJson(reader, Array<Usuario>::class.java).toList()
+    private fun cargarUsuariosDesdeJSON() {
+        val jsonUsuarios = leerArchivoJSON("usuarios.json")
+        usuarios = Gson().fromJson(jsonUsuarios, Array<Usuario>::class.java).toList()
     }
 
-    private fun iniciarSesion(username: String, contraseña: String): Boolean {
-        val usuario = usuarios.find { it.username == username }
-        return usuario?.contraseña == contraseña
+    private fun leerArchivoJSON(nombreArchivo: String): String {
+        val bufferedReader = BufferedReader(InputStreamReader(assets.open(nombreArchivo)))
+        val stringBuilder = StringBuilder()
+        var line: String?
+        while (bufferedReader.readLine().also { line = it } != null) {
+            stringBuilder.append(line)
+        }
+        return stringBuilder.toString()
+    }
+
+    private fun mostrarMensajeError(mensaje: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Error")
+            .setMessage(mensaje)
+            .setPositiveButton("Aceptar", null)
+            .show()
+    }
+
+    private fun mostrarMensajeExito(mensaje: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Éxito")
+            .setMessage(mensaje)
+            .setPositiveButton("Aceptar") { _, _ ->
+                // Ir a la actividad del menú principal
+                val intent = Intent(this, MenuPrincipal::class.java)
+                startActivity(intent)
+                finish()
+            }
+            .show()
     }
 }
-

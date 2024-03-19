@@ -1,131 +1,91 @@
 package com.example.leaguesyync
 
-import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.lang.Exception
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Locale
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var firstNameEditText: EditText
-    private lateinit var lastName1EditText: EditText
-    private lateinit var lastName2EditText: EditText
-    private lateinit var usernameEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var passwordConfirmEditText: EditText
-    private lateinit var emailEditText: EditText
-    private lateinit var fechaNacimientoEditText: EditText
-    private lateinit var registerButton: Button
-
-    private lateinit var usersList: List<Usuario>
+    private lateinit var registroManager: RegisterUsuarioManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        firstNameEditText = findViewById(R.id.firstNameEditText)
-        lastName1EditText = findViewById(R.id.lastName1EditText)
-        lastName2EditText = findViewById(R.id.lastName2EditText)
-        usernameEditText = findViewById(R.id.usernameEditText)
-        passwordEditText = findViewById(R.id.passwordEditText)
-        passwordConfirmEditText = findViewById(R.id.passwordConfirmEditText)
-        emailEditText = findViewById(R.id.email)
-        fechaNacimientoEditText = findViewById(R.id.fechaNacimiento)
-        registerButton = findViewById(R.id.registerButton)
+        registroManager = RegisterUsuarioManager(this)
 
-        loadUsersFromJson()
-
-        registerButton.setOnClickListener { registerUser() }
-
-        fechaNacimientoEditText.setOnClickListener { showDatePicker() }
-    }
-
-    private fun loadUsersFromJson() {
-        try {
-            val inputStream = assets.open("users.json")
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val jsonStringBuilder = StringBuilder()
-            var line: String?
-            while (reader.readLine().also { line = it } != null) {
-                jsonStringBuilder.append(line)
-            }
-            reader.close()
-
-            val userListType = object : TypeToken<List<Usuario>>() {}.type
-            usersList = Gson().fromJson(jsonStringBuilder.toString(), userListType)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            usersList = emptyList()
+        val btnSave = findViewById<Button>(R.id.registerButton)
+        btnSave.setOnClickListener {
+            registrarUsuario()
         }
     }
 
-    private fun registerUser() {
-        val fullName = "${firstNameEditText.text} ${lastName1EditText.text} ${lastName2EditText.text}"
-        val username = usernameEditText.text.toString()
-        val password = passwordEditText.text.toString()
-        val confirmPassword = passwordConfirmEditText.text.toString()
-        val email = emailEditText.text.toString()
-        val fechaNacimiento = fechaNacimientoEditText.text.toString()
+    private fun registrarUsuario() {
+        val firstName = findViewById<EditText>(R.id.firstNameEditText).text.toString()
+        val lastName1 = findViewById<EditText>(R.id.lastName1EditText).text.toString()
+        val lastName2 = findViewById<EditText>(R.id.lastName2EditText).text.toString()
+        val username = findViewById<EditText>(R.id.usernameEditText).text.toString()
+        val password = findViewById<EditText>(R.id.passwordEditText).text.toString()
+        val passwordConfirm = findViewById<EditText>(R.id.passwordConfirmEditText).text.toString()
+        val email = findViewById<EditText>(R.id.email).text.toString()
+        val fechaNacimiento = findViewById<EditText>(R.id.fechaNacimiento).text.toString()
 
-        if (usersList.any { it.username == username }) {
-            showToast("El nombre de usuario ya está en uso.")
+        if (username.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() || email.isEmpty() || fechaNacimiento.isEmpty()) {
+            mostrarMensajeError("Por favor, complete todos los campos.")
             return
         }
 
-        if (usersList.any { it.email == email }) {
-            showToast("El correo electrónico ya está en uso.")
+        if (password != passwordConfirm) {
+            mostrarMensajeError("Las contraseñas no coinciden.")
             return
         }
 
-        if (fullName.isBlank() || username.isBlank() || password.isBlank() || confirmPassword.isBlank() || email.isBlank() || fechaNacimiento.isBlank()) {
-            showToast("Por favor complete todos los campos.")
+        if (registroManager.getUsuariosRegistrados().any { it.username == username }) {
+            mostrarMensajeError("El nombre de usuario ya está en uso.")
             return
         }
 
-
-        if (password != confirmPassword) {
-            showToast("Las contraseñas no coinciden.")
+        if (registroManager.getUsuariosRegistrados().any { it.email == email }) {
+            mostrarMensajeError("El correo electrónico ya está registrado.")
             return
         }
 
-        // TODO: Realizar la lógica de registro de usuario aquí (enviar datos a la base de datos, etc.)
-
-        showToast("Registro exitoso")
-
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-    }
-
-    private fun showDatePicker() {
-        val calendar = Calendar.getInstance()
-        val datePicker = DatePickerDialog(
-            this,
-            DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
-                val selectedDate = Calendar.getInstance()
-                selectedDate.set(year, month, dayOfMonth)
-                val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                val dateString = dateFormat.format(selectedDate.time)
-                fechaNacimientoEditText.setText(dateString)
-            },
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
+        val usuario = Usuario(
+            fullname = "$firstName $lastName1 $lastName2",
+            username = username,
+            birthdate = fechaNacimiento,
+            email = email,
+            contraseña = password
         )
-        datePicker.show()
+
+        registroManager.registrarNuevoUsuario(usuario)
+
+        mostrarMensajeExito("Usuario registrado exitosamente.")
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    private fun mostrarMensajeError(mensaje: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Error")
+            .setMessage(mensaje)
+            .setPositiveButton("Aceptar", null)
+            .show()
+    }
+
+    private fun mostrarMensajeExito(mensaje: String) {
+        AlertDialog.Builder(this)
+            .setTitle("Éxito")
+            .setMessage(mensaje)
+            .setPositiveButton("Aceptar") { _, _ ->
+                val intent = Intent(this, MenuPrincipal::class.java)
+                startActivity(intent)
+                finish()
+            }
+            .show()
     }
 }
+
