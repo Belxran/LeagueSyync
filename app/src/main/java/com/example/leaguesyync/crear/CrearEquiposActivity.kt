@@ -1,4 +1,4 @@
-package com.example.leaguesyync
+package com.example.leaguesyync.crear
 
 
 import android.os.Bundle
@@ -8,6 +8,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.leaguesyync.Equipo
+import com.example.leaguesyync.EquipoAdapter
+import com.example.leaguesyync.R
 
 class CrearEquiposActivity : AppCompatActivity() {
 

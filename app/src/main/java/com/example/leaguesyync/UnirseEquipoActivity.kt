@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leaguesyync.crear.CrearAvatarActivity
 import com.example.leaguesyync.databinding.ActivityUnirseEquipoBinding
 
 class UnirseEquipoActivity : AppCompatActivity() {
