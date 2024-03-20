@@ -1,9 +1,11 @@
 package com.example.leaguesyync
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,9 @@ import java.io.BufferedWriter
 import java.io.IOException
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -30,6 +35,11 @@ class RegisterActivity : AppCompatActivity() {
         val btnSave = findViewById<Button>(R.id.registerButton)
         btnSave.setOnClickListener {
             registrarUsuario()
+        }
+
+        val fechaNacimientoEditText = findViewById<EditText>(R.id.fechaNacimiento)
+        fechaNacimientoEditText.setOnClickListener {
+            mostrarDatePickerDialog()
         }
     }
 
@@ -77,6 +87,46 @@ class RegisterActivity : AppCompatActivity() {
         mostrarMensajeExito("Usuario registrado exitosamente.")
     }
 
+    private fun guardarUsuariosEnJSON(usuarios: MutableList<Usuario>) {
+        val jsonString = Gson().toJson(usuarios)
+        try {
+            val outputStream = openFileOutput("usuarios.json", Context.MODE_PRIVATE)
+            val writer = BufferedWriter(OutputStreamWriter(outputStream))
+            writer.write(jsonString)
+            writer.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            mostrarMensajeError("Error al guardar usuarios en el archivo JSON.")
+        }
+    }
+
+    private fun cargarUsuariosDesdeJSON(): MutableList<Usuario> {
+        val jsonString = leerArchivoJSON("usuarios.json")
+        return if (jsonString.isNotEmpty()) {
+            Gson().fromJson(jsonString, object : TypeToken<MutableList<Usuario>>() {}.type)
+        } else {
+            mutableListOf()
+        }
+    }
+
+    private fun leerArchivoJSON(filename: String): String {
+        return try {
+            val inputStream = openFileInput(filename)
+            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+            val stringBuilder = StringBuilder()
+            var line: String? = bufferedReader.readLine()
+            while (line != null) {
+                stringBuilder.append(line)
+                line = bufferedReader.readLine()
+            }
+            bufferedReader.close()
+            stringBuilder.toString()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            ""
+        }
+    }
+
     private fun mostrarMensajeError(mensaje: String) {
         AlertDialog.Builder(this)
             .setTitle("Error")
@@ -97,43 +147,26 @@ class RegisterActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun cargarUsuariosDesdeJSON(): MutableList<Usuario> {
-        val jsonString = leerArchivoJSON("usuarios.json")
-        return if (jsonString.isNotEmpty()) {
-            Gson().fromJson(jsonString, object : TypeToken<MutableList<Usuario>>() {}.type)
-        } else {
-            mutableListOf()
-        }
-    }
 
-    private fun guardarUsuariosEnJSON(usuarios: MutableList<Usuario>) {
-        val jsonString = Gson().toJson(usuarios)
-        try {
-            val outputStream = openFileOutput("usuarios.json", Context.MODE_PRIVATE)
-            val writer = BufferedWriter(OutputStreamWriter(outputStream))
-            writer.write(jsonString)
-            writer.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            mostrarMensajeError("Error al guardar usuarios en el archivo JSON.")
-        }
-    }
 
-    private fun leerArchivoJSON(filename: String): String {
-        return try {
-            val inputStream = assets.open(filename)
-            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
-            val stringBuilder = StringBuilder()
-            var line: String? = bufferedReader.readLine()
-            while (line != null) {
-                stringBuilder.append(line)
-                line = bufferedReader.readLine()
-            }
-            bufferedReader.close()
-            stringBuilder.toString()
-        } catch (e: IOException) {
-            e.printStackTrace()
-            ""
-        }
+
+
+    private fun mostrarDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
+                val selectedDate = Calendar.getInstance()
+                selectedDate.set(year, monthOfYear, dayOfMonth)
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                val formattedDate = sdf.format(selectedDate.time)
+                findViewById<EditText>(R.id.fechaNacimiento).setText(formattedDate)
+            },
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
     }
 }
+
