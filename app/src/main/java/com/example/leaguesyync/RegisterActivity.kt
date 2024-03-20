@@ -1,23 +1,31 @@
 package com.example.leaguesyync
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
-import java.util.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.IOException
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var registroManager: RegisterUsuarioManager
+    private lateinit var usuarios: MutableList<Usuario>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         registroManager = RegisterUsuarioManager(this)
+        usuarios = cargarUsuariosDesdeJSON()
 
         val btnSave = findViewById<Button>(R.id.registerButton)
         btnSave.setOnClickListener {
@@ -45,17 +53,17 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
-        if (registroManager.getUsuariosRegistrados().any { it.username == username }) {
+        if (usuarios.any { it.username == username }) {
             mostrarMensajeError("El nombre de usuario ya está en uso.")
             return
         }
 
-        if (registroManager.getUsuariosRegistrados().any { it.email == email }) {
+        if (usuarios.any { it.email == email }) {
             mostrarMensajeError("El correo electrónico ya está registrado.")
             return
         }
 
-        val usuario = Usuario(
+        val nuevoUsuario = Usuario(
             fullname = "$firstName $lastName1 $lastName2",
             username = username,
             birthdate = fechaNacimiento,
@@ -63,7 +71,8 @@ class RegisterActivity : AppCompatActivity() {
             contraseña = password
         )
 
-        registroManager.registrarNuevoUsuario(usuario)
+        usuarios.add(nuevoUsuario)
+        guardarUsuariosEnJSON(usuarios)
 
         mostrarMensajeExito("Usuario registrado exitosamente.")
     }
@@ -87,5 +96,44 @@ class RegisterActivity : AppCompatActivity() {
             }
             .show()
     }
-}
 
+    private fun cargarUsuariosDesdeJSON(): MutableList<Usuario> {
+        val jsonString = leerArchivoJSON("usuarios.json")
+        return if (jsonString.isNotEmpty()) {
+            Gson().fromJson(jsonString, object : TypeToken<MutableList<Usuario>>() {}.type)
+        } else {
+            mutableListOf()
+        }
+    }
+
+    private fun guardarUsuariosEnJSON(usuarios: MutableList<Usuario>) {
+        val jsonString = Gson().toJson(usuarios)
+        try {
+            val outputStream = openFileOutput("usuarios.json", Context.MODE_PRIVATE)
+            val writer = BufferedWriter(OutputStreamWriter(outputStream))
+            writer.write(jsonString)
+            writer.close()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            mostrarMensajeError("Error al guardar usuarios en el archivo JSON.")
+        }
+    }
+
+    private fun leerArchivoJSON(filename: String): String {
+        return try {
+            val inputStream = assets.open(filename)
+            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+            val stringBuilder = StringBuilder()
+            var line: String? = bufferedReader.readLine()
+            while (line != null) {
+                stringBuilder.append(line)
+                line = bufferedReader.readLine()
+            }
+            bufferedReader.close()
+            stringBuilder.toString()
+        } catch (e: IOException) {
+            e.printStackTrace()
+            ""
+        }
+    }
+}
